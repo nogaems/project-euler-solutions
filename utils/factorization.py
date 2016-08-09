@@ -15,3 +15,25 @@ def get_max_factor(target):
                 break
     
     return target if search is 1 else search
+
+def get_factor_list(target, dump_path='', separator=' '):
+    if dump_path:
+        output = open(dump_path, 'w')
+    search = []
+    top_border = int(ceil(target))
+    primes = get_primes(top_border)
+    for n in primes:
+        while True:
+            if target % n == 0:
+                target = target / n
+                if dump_path:
+                    output.write(str(n) + separator)
+                else:
+                    search.append(n)
+            else:
+                break
+    if dump_path:
+        output.close()
+        return True
+    else:
+        return search
