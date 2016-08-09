@@ -1,4 +1,4 @@
-from permutation import get_count
+from combinations import get_count
 from fractions import Fraction
 
 def get_numbers(N):
