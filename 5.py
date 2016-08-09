@@ -1,7 +1,8 @@
 from utils.factorization import get_factor_list
+from functools import reduce  # Fuck you Gvido 
 
 dividers = []
-for n in xrange(2, 21):
+for n in range(2, 21):
     factors = get_factor_list(n) 
     for f in factors:
         if f not in dividers:

@@ -11,14 +11,14 @@ def get_primes(N):
     sieve = [True] * (N + 1)
     prime = 2  # initial value
     while N + 1 >= prime ** 2:
-        for i in xrange((prime ** 2) - 2, N + 1, prime): # for all numbers which multiples of "prime"
+        for i in range((prime ** 2) - 2, N + 1, prime): # for all numbers which multiples of "prime"
             sieve[i] = False
-        for n in xrange(prime - 1, N + 1):  # definition of next prime number 
+        for n in range(prime - 1, N + 1):  # definition of next prime number 
             if sieve[n]:
                 prime = n + 2
                 break
     result = []
-    for i in xrange(N):
+    for i in range(N):
         if sieve[i]:
             result.append(i+2)
     return result

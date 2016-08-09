@@ -1,4 +1,4 @@
-from soe2 import get_primes
+from .soe2 import get_primes
 from math import sqrt, ceil
 
 def get_max_factor(target):
