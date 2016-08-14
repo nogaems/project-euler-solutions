@@ -24,11 +24,18 @@ def get_triples(c_max=5):
         if m > int(math.sqrt(c_max - 1)):
             return triples
         for n in range(1, m):
-            if n == 1 or m % n != 0:
-                a, b, c = sorted([f1(m, n), f2(m, n), f3(m, n)])
-                if c > c_max:
-                    break                    
-                if c % b != 0 and b % a != 0 and c % a != 0 and [a, b, c] not in triples:
-                    triples.append([a, b, c])
-        m += 1
+            a, b, c = sorted([f1(m, n), f2(m, n), f3(m, n)])
+            if c > c_max:
+                break
+            if  c % b != 0 and b % a != 0 and c % a != 0 and [a, b, c] not in triples:
+                triples.append([a, b, c])
+                k = 2
+                while True:
+                    a, b, c = a * k, b * k, c * k
+                    if c > c_max:
+                        break
+                    elif [a, b, c] not in triples:
+                        triples.append([a, b, c])
+                    k += 1
 
+        m += 1
