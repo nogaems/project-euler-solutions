@@ -30,27 +30,18 @@ seq_len = 4  # Length of sequence
 size = 20  # Number of elements in row/col
 
 # Checking for existence a sequence with that index in a border of grid.
-check_left = lambda j: True if j - seq_len >= -1 else False
 check_right = lambda j: True if j + seq_len <= size else False
 check_up = lambda i: check_left(i)
 check_down = lambda i: check_right(i)
 
 def get_seq(i, j, direction):
     d = direction  # For minification of the code size
-    if d is 'l':
-        return grid[i][j+1-seq_len:j+1]
-    elif d is 'r':
+    if d is 'r':
         return grid[i][j:j+seq_len]
-    elif d is 'u':
-        return [grid[i-z][j] for z in range(seq_len)]
     elif d is 'd':
         return [grid[i+z][j] for z in range(seq_len)]
-    elif d is 'lu':
-        return [grid[i-z][j-z] for z in range(seq_len)]
     elif d is 'ru':
         return [grid[i-z][j+z] for z in range(seq_len)]
-    elif d is 'ld':
-        return [grid[i+z][j-z] for z in range(seq_len)]
     elif d is 'rd':
         return [grid[i+z][j+z] for z in range(seq_len)]
     else:
@@ -60,20 +51,8 @@ result = 0  # Initial value
 
 for i in range(size):
     for j in range(size):
-        if check_left(j):
-            seq = get_seq(i, j, 'l')
-            if seq and 0 not in seq:
-                value = reduce(lambda x, y: x * y, seq)
-                if value > result:
-                    result = value
         if check_right(j):
             seq = get_seq(i, j, 'r')
-            if seq and 0 not in seq:
-                value = reduce(lambda x, y: x * y, seq)
-                if value > result:
-                    result = value
-        if check_up(i):
-            seq = get_seq(i, j, 'u')
             if seq and 0 not in seq:
                 value = reduce(lambda x, y: x * y, seq)
                 if value > result:
@@ -84,20 +63,8 @@ for i in range(size):
                 value = reduce(lambda x, y: x * y, seq)
                 if value > result:
                     result = value
-        if check_left(j) and check_up(i):
-            seq = get_seq(i, j, 'lu')
-            if seq and 0 not in seq:
-                value = reduce(lambda x, y: x * y, seq)
-                if value > result:
-                    result = value
         if check_right(j) and check_up(i):
             seq = get_seq(i, j, 'ru')
-            if seq and 0 not in seq:
-                value = reduce(lambda x, y: x * y, seq)
-                if value > result:
-                    result = value
-        if check_left(j) and check_down(i):
-            seq = get_seq(i, j, 'ld')
             if seq and 0 not in seq:
                 value = reduce(lambda x, y: x * y, seq)
                 if value > result:
@@ -110,4 +77,3 @@ for i in range(size):
                     result = value
 
 print(result)
-# same way computation for the other directions
