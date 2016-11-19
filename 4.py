@@ -1,3 +1,6 @@
+from sys import version_info
+if version_info.major == 3:
+    xrange = range
 
 def check(number):
     if len(str(number)) != 6:
@@ -14,7 +17,6 @@ def process():
         'f1': 0,
         'f2': 0
     }
-
     for f1 in xrange(101, 1000):
         for f2 in xrange(101, 1000):
             candidate = f1 * f2
@@ -24,4 +26,4 @@ def process():
 
     return search
 
-print(process())
+print(process()['value'])
