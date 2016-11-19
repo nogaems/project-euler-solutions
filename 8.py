@@ -37,4 +37,4 @@ for seq in [s for s in big_number.split('0') if len(s) >= subseq_len]:
             search = product
             subseq = temp
 
-print(search, ' x '.join(list(subseq)))
+print(search)
