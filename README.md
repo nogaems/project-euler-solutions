@@ -11,3 +11,4 @@ This is the my version of solutions Project Euler problems.
 * Getting [the maximum divisor] (https://github.com/nogaems/project-euler-solutions/blob/master/utils/factorization.py#L4) or [a list of divisors] (https://github.com/nogaems/project-euler-solutions/blob/master/utils/factorization.py#L19) of the number.
 * The number of [permutations] (https://github.com/nogaems/project-euler-solutions/blob/master/utils/combinations.py#L3) of n by k.
 * a [list] (https://github.com/nogaems/project-euler-solutions/blob/master/utils/bernoulli.py#L4) of the Bernoulli numbers up to N inclusive.
+* [Faulhaber's formula] (https://github.com/nogaems/project-euler-solutions/blob/master/utils/faulhaber.py#L1)
