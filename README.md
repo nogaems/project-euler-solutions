@@ -13,3 +13,4 @@ This is the my version of solutions Project Euler problems.
 * a [list] (https://github.com/nogaems/project-euler-solutions/blob/master/utils/bernoulli.py#L4) of the Bernoulli numbers up to N inclusive.
 * [Faulhaber's formula] (https://github.com/nogaems/project-euler-solutions/blob/master/utils/faulhaber.py#L1)
 * a [set] (https://github.com/nogaems/project-euler-solutions/blob/master/utils/sets.py#L1) of all unique subsets of the set
+* [translation] (https://github.com/nogaems/project-euler-solutions/blob/master/utils/number.py#L1) of number to  word representation
