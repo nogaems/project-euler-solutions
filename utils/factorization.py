@@ -1,6 +1,7 @@
 from .soe2 import get_primes
 from math import sqrt, ceil
 
+
 def get_max_factor(target):
     target = int(target)
     search = 1
@@ -13,12 +14,12 @@ def get_max_factor(target):
                 search = n
             else:
                 break
-    
-    return target if search is 1 else search
+
+    return target if search == 1 else search
+
 
 def get_factor_list(target, primes=None, dump_path='', separator=' '):
-    if dump_path:
-        output = open(dump_path, 'w')
+    output = open(dump_path, 'w') if dump_path else None
     search = []
     top_border = int(ceil(target))
     if not primes:
@@ -27,14 +28,8 @@ def get_factor_list(target, primes=None, dump_path='', separator=' '):
         while True:
             if target % n == 0:
                 target = target / n
-                if dump_path:
-                    output.write(str(n) + separator)
-                else:
-                    search.append(n)
+                output.write(
+                    str(n) + separator) if output else search.append(n)
             else:
                 break
-    if dump_path:
-        output.close()
-        return True
-    else:
-        return search
+    return True if output else search
